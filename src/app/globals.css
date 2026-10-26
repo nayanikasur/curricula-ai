@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f7f6f3;
+  --surface: #ffffff;
+  --surface-2: #f1efea;
+  --border: #e4e1da;
+  --text: #1c1b19;
+  --muted: #6b6860;
+  --accent: #4f46e5;
+  --accent-soft: #eef0ff;
+  --accent-text: #ffffff;
+  --good: #15803d;
+  --good-soft: #e8f6ec;
+  --warn: #b45309;
+  --warn-soft: #fdf3e2;
+  --bad: #b91c1c;
+  --bad-soft: #fdecec;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121211;
+    --surface: #1b1b19;
+    --surface-2: #242421;
+    --border: #33322e;
+    --text: #eceae4;
+    --muted: #9b988f;
+    --accent: #8b85ff;
+    --accent-soft: #25234a;
+    --accent-text: #0f0e1f;
+    --good: #4ade80;
+    --good-soft: #15291c;
+    --warn: #fbbf24;
+    --warn-soft: #2e2410;
+    --bad: #f87171;
+    --bad-soft: #321616;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-text: var(--accent-text);
+  --color-good: var(--good);
+  --color-good-soft: var(--good-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-bad: var(--bad);
+  --color-bad-soft: var(--bad-soft);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+@utility card {
+  @apply rounded-xl border border-border bg-surface;
+}
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-50;
+}
+@utility btn-primary {
+  @apply btn bg-accent text-accent-text hover:opacity-90;
+}
+@utility btn-ghost {
+  @apply btn border border-border bg-surface text-text hover:bg-surface-2;
+}
+@utility input {
+  @apply w-full rounded-lg border border-border bg-surface px-3 py-2 text-sm outline-none focus:border-accent focus:ring-2 focus:ring-accent/20;
+}
+@utility label {
+  @apply mb-1.5 block text-sm font-medium;
+}
